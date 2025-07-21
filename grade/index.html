@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학점 계산기</title>
+</head>
+<body>
+    <h1>학점 계산기</h1>
+
+    <input type="number" id="scoreInput" placeholder="점수를 입력하세요."/>
+    <button onclick="handleClick()">확인</button>
+ <p id="result"></p>
+
+ <script>
+  function getGrade(score) {
+        if (score >= 90) return "A 학점입니다.";
+        else if (score >= 80) return "B 학점입니다.";
+        else if (score >= 70) return "C 학점입니다.";
+        else if (score >= 60) return "D 학점입니다.";
+        else return "F 학점입니다.";
+      }
+      function handleClick() {
+        const input = document.getElementById("scoreInput");
+        const result = document.getElementById("result");
+        const score = parseInt(input.value);
+        result.textContent = getGrade(score);
+      }
+ </script>
+</body>
+</html>
