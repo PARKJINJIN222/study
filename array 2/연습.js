@@ -10,4 +10,19 @@ const users = [
 // 삼호님에게는 추천 정보를 준비 중입니다.
 
 
-for (let u = 0; u < users.length; u++ );
+for (let u = 0; u < users.length; u++ ) {
+
+  const name = users[u].name;
+  const book = users[u].book;
+  const doll = users[u].doll;
+
+ if (!book || !doll ) {
+  console.log(`${name}님에게 추천 정보를 준비중입니다!`)
+  continue;
+ }
+ console.log(`${name}님에게 추천하는 책은 ${book}이며, 인형은 ${doll}를 추천합니다.`);
+}
+
+// 목표 2: map() + filter() 써서
+
+// → 정상 데이터만 메시지 배열로 만들기

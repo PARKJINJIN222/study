@@ -113,7 +113,7 @@ const sanrio = ["한교동", "쿠로미"];
 const results = adults
   .map((name, i) => {
     if (!book2[i] || !sanrio[i]) return null;
-    return ${name}님에게 추천하는 책은 ${book2[i]}이며, 인형은 ${sanrio[i]}를 추천합니다.;
+    return `${name}님에게 추천하는 책은 ${book2[i]}이며, 인형은 ${sanrio[i]}를 추천합니다.`;
   })
   .filter(Boolean); // null 제거을 제거하는 방식이라고 하는데 이거에 대한 방법도 뭔가 익히고 해야 할 거 같다.
 
@@ -180,3 +180,77 @@ for (let i = 0; i < arr.length; i++) {
 //     </ul>
 //   );
 // }
+
+// 간단한 복습
+
+const arr = [1,2,3];
+for ( let i = 0; i <arr.length; i++) {
+  console.log(arr[i]);
+}
+
+for (let i = 0; i < users.length; i++) {
+if(!user[i].book || !users[i].doll) {
+  console.log(`${users[i].name}님에게는 추천 정보를 준비중입니다.`)
+  continue;
+}
+console.log(`${users[i].name}님에게 추천하는 책은 ${users[i].book}, 인형은 ${users[i].doll}`);
+}
+
+
+const result = users
+.filter(user => user.book && user.doll)
+.map(user => `${user.name}님에게 추천하는 책은 ${user.booK}, 인형은 ${user.doll}입니다`);
+
+const users = [
+  { name: "은하", book: "JS 기초", doll: "쿠로미" },
+  { name: "미나", book: null, doll: "마이멜로디" },
+  { name: "진한", book: "리액트 입문", doll: undefined }
+];
+
+//혹시나 해서 아래의 코드가 되나 적어봤지만 되지 않았다.
+
+const test = users
+if (users.filter(user => user.book && user.doll)) {
+  return `${user.name}님에게 추천하는 책은 ${user.book}, 추천하는 인형은 ${user.doll}입니다`
+}
+else{
+  return `${user.name}님에게는 추천 정보를 준비 중입니다.`
+}
+
+
+//이유는 다음과 같았다.
+// filter는 배열을 리턴, 배열은 비어있어도 truthy이기 때문에 if array는 항상 true처럼 동작할 수 있음.
+// return은 함수안에서만 쓸 수 있다.
+// user라는 변수가 선언되지 않았다. if 안쪽에서 user.name썼지만 그 시점엔 user가 없다.
+// map()또는 for문안에서 각 user를 순회해야만 사용할 수 있다.
+
+//고친다면 아래와 같이 for문을 사용해서 countiue방법과 map순회를 통해 고칠 수 있었다.
+
+for (let i = 0; i < users.length; i++) {
+  const user = users[i];
+  
+  if (!user.book || !user.doll) {
+    console.log(`${user.name}님에게는 추천 정보를 준비 중입니다.`);
+    continue;
+  }
+
+  console.log(`${user.name}님에게 추천하는 책은 ${user.book}, 추천하는 인형은 ${user.doll}입니다.`);
+}
+
+const messages = users.map((user) => {
+  if (!user.book || !user.doll) {
+    return `${user.name}님에게는 추천 정보를 준비 중입니다.`;
+  }
+  return `${user.name}님에게 추천하는 책은 ${user.book}, 추천하는 인형은 ${user.doll}입니다.`;
+});
+
+  const result = users
+  .map((user) => {
+    if (!user.book || !user.doll) {
+      return `${user.name}님에게는 추천 정보를 준비 중입니다.`;
+    }
+
+    return `${user.name}님에게 추천하는 책은 ${user.book}, 추천하는 인형은 ${user.doll}입니다.`;
+  });
+
+result.forEach(msg => console.log(msg));
