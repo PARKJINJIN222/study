@@ -77,10 +77,16 @@
     const favorite = document.getElementById("favorite")
 
     button.addEventListener("click", () => {
-        favorite.style.display="block";
+    if(favorite.style.display === "none")
+        {return favorite.style.display="block";}
+        else
+        {return favorite.style.display ="none"}
         
     })
 
+//button.addEventListener("click", () => {
+  //favorite.style.display = favorite.style.display === "none" ? "block" : "none";
+//});
 </script>
 </body>
 </html>
