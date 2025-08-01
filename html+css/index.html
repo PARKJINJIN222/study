@@ -1,92 +1,164 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>간단한 소개</title>
-    <style>
-        body {
-      background-color: #f9f9f9;
-      font-family: 'Arial', sans-serif;
-      padding: 20px;
-      line-height: 1.6;
-    }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>간단한 소개</title>
+        <style>
+            body {
+                background-color: #f9f9f9;
+                font-family: "Arial", sans-serif;
+                padding: 20px;
+                line-height: 1.6;
+            }
 
-    h1 {
-      color: #2b2b2b;
-      font-size: 32px;
-    }
+            h1 {
+                color: #2b2b2b;
+                font-size: 32px;
+            }
 
-    h2 {
-      color: #3b5998;
-      margin-top: 30px;
-    }
+            h2 {
+                color: #3b5998;
+                margin-top: 30px;
+            }
 
-    ul {
-      list-style-type: circle;
-      padding-left: 20px;
-    }
+            ul {
+                list-style-type: circle;
+                padding-left: 20px;
+            }
 
-    li {
-      margin-bottom: 10px;
-      color: #444;
-    }
-    button{
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 15px;
-        cursor: grab;
-        transition: 0.3s;
-    }
-    button:hover {
-        background-color: #45a049;
-    }
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
-       
-    </style>
-</head>
-<div class="container">
-<body>
-    <h1>간단하게 HTML을 정리하기 위해 만든 HTML입니다.</h1>
-    <p>저는 개발자와 인터넷 방송인을 꿈꾸고 있습니다.</p>
+            li {
+                margin-bottom: 10px;
+                color: #444;
+            }
+            button {
+                background-color: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                font-size: 15px;
+                cursor: grab;
+                transition: 0.3s;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 30vh;
+            }
+            .input-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            input[type="text"] {
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                outline: none;
+                transition: 0.3s;
+            }
 
-    <h2>요즘은 뭐해?</h2>
-    <button id="Btn">뭐하는지 보기</button>
-    <ul id="favorite" style="display: none">
-        <li>요즘은 파이썬을 새로 배우면서 프론트앤드 기술들을 복습하고 있습니다.</li>
-        <li>하면서 경제활동으로 쉬는날에 알바 지원을 넣고 알바들을 하면서 공부하고 있습니다.</li>
-        <li>그리고 하루를 마무리 하기 위해 운동과 노래감상을 하고있습니다.</li>
-        <li>아직은 많이 모자르지만 나중에 보면 고군분투 했던 날들이 뿌듯한 날이 오길 바라며,
-            열심히 나아가보려고 합니다!
-        </li>
-    
-    </ul>
+            input[type="text"]:focus {
+                border-color: #4caf50;
+                box-shadow: 0 0 3px #4caf50;
+            }
+        </style>
+    </head>
 
-</div>
-<script>
-    const button = document.getElementById("Btn")
-    const favorite = document.getElementById("favorite")
+    <body>
+        <div class="input-container">
+            <h1>안녕하세요. 이곳은 간단하게 HTML을 정리하기 위해 만든 HTML입니다.</h1>
+            <p>실례가 되지 않는다면 방문해주신 당신의 성함을 알고 싶어요.</p>
+            <div class="enter"></div>
+            <p><b>저는 </b><input type="text" id="nameInput" placeholder="여기에 성함을 알려주시겠어요?" /></p>
+            <button id="nameButton">입니다.</button>
 
-    button.addEventListener("click", () => {
-    if(favorite.style.display === "none")
-        {return favorite.style.display="block";}
-        else
-        {return favorite.style.display ="none"}
-        
-    })
+            <p id="userName" style="display: none"></p>
+        </div>
+        <div class="container">
+            <p>저는 개발자와 인터넷 방송인을 꿈꾸고 있는 현재는 취업 준비생 박진호라고 합니다.</p>
+            <button id="Btn">뭐하는지 보기</button>
+            <ul id="favorite" style="display: none">
+                <li>요즘은 파이썬을 새로 배우면서 프론트앤드 기술들을 복습하고 있습니다.</li>
+                <li>하면서 경제활동으로 쉬는날에 알바 지원을 넣고 알바들을 하면서 공부하고 있습니다.</li>
+                <li>그리고 하루를 마무리 하기 위해 운동과 노래감상을 하고있습니다.</li>
+                <li>
+                    아직은 많이 모자르지만 나중에 보면 고군분투 했던 날들이 뿌듯한 날이 오길 바라며, 열심히 나아가보려고
+                    합니다!
+                </li>
+            </ul>
+        </div>
+        <script>
+            const button = document.getElementById("Btn");
+            const favorite = document.getElementById("favorite");
+            const nameInput = document.getElementById("nameInput");
+            const nameBtn = document.getElementById("nameButton");
+            const userName = document.getElementById("userName");
 
-//button.addEventListener("click", () => {
-  //favorite.style.display = favorite.style.display === "none" ? "block" : "none";
-//});
-</script>
-</body>
+            // nameBtn.addEventListener("click",  () => {
+            //     const name = nameInput.value.trim();
+
+            //     if (name) {
+            //         userName.textContent = `안녕하세요! ${name}님!`;
+            //         userName.style.display = "block";
+            //     } else {
+            //         userName.textContent = "번거로우시겠지만 성함을 알려주실 수 있을까요?";
+            //         userName.style.display = "block";
+            //     }
+            // });
+            function handleSubmit() {
+                const name = nameInput.value.trim();
+
+                if (name) {
+                    userName.textContent = `안녕하세요! ${name}님!`;
+                    userName.style.display = "block";
+                    nameInput.style.display = "none";
+                    nameBtn.style.display = "none";
+                } else {
+                    userName.textContent = "번거로우시겠지만 성함을 알려주실 수 있을까요?";
+                    userName.style.display = "block";
+                }
+            }
+
+            nameBtn.addEventListener("click", handleSubmit);
+
+            nameInput.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") handleSubmit();
+            });
+
+            button.addEventListener("click", () => {
+                favorite.style.display = favorite.style.display === "none" ? "block" : "none";
+            });
+
+            //아래를 위처럼 수정할 수도 있다.
+            // nameBtn.addEventListener("click", handleSubmit);
+            // nameInput.addEventListener("keydown", (e) => {
+            //     if (e.key === "Enter") handleSubmit();
+            // });
+            // nameBtn.addEventListener("click", handleSubmit);
+            // nameInput.addEventListener("keydown", (e) => {
+            //     if (e.key === "Enter") handleSubmit();
+            // });
+
+            // button.addEventListener("click", () => {
+            //     if (favorite.style.display === "none") {
+            //         return (favorite.style.display = "block");
+            //     } else {
+            //         return (favorite.style.display = "none");
+            //     }
+            // });
+
+            //button.addEventListener("click", () => {
+            //favorite.style.display = favorite.style.display === "none" ? "block" : "none";
+            //});
+        </script>
+    </body>
 </html>
