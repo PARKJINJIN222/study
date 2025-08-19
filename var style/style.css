@@ -1,0 +1,11 @@
+: root {
+    --main-font-color: ##000f22; /* css 전역 변수 선언 */
+}
+
+div {
+    color: var(--main-font-color); /* css 변수 사용 */
+}
+
+/* 변수 선언 후 내용은 무엇이 되든 상관 없으나,
+변수 명에 포함되는 color, padding, text등을 인식하기 때문에 변수명에 맞는 것을 써야한다. 
+color가 변수명일 경우 안에 50px 같은 건 무시된다.  */

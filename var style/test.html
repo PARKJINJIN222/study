@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS 변수 실험</title>
+        <style>
+            :root {
+                --main-color: #4caf50; /* 값 적용 O*/
+                --wrong-color: 50px; /* ❌ */
+                --main-padding: 20px; /* 값 적용 O */
+                --weird-text: banana; /* ❌ */
+            }
+
+            h1 {
+                color: var(--main-color); /* 값 적용 O*/
+                padding: var(--main-padding); /* 값 적용 O*/
+                background-color: var(--wrong-color); /* ❌ */
+                font-family: var(--weird-text); /* ❌ */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CSS 변수 실험</h1>
+    </body>
+</html>
