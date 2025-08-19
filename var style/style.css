@@ -1,11 +1,44 @@
-: root {
+/* : root {
     --main-font-color: ##000f22; /* css 전역 변수 선언 */
-}
+} */
+/* CSS 변수를 전역에서 정의할 때 쓰면, 모든 곳에서 접근 가능 */
 
-div {
+/* div {
     color: var(--main-font-color); /* css 변수 사용 */
-}
+} */
 
 /* 변수 선언 후 내용은 무엇이 되든 상관 없으나,
 변수 명에 포함되는 color, padding, text등을 인식하기 때문에 변수명에 맞는 것을 써야한다. 
 color가 변수명일 경우 안에 50px 같은 건 무시된다.  */
+
+
+
+:root {
+
+    --bg : white;
+    --text: black;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+/* 이렇게 불러올 수 있다 */
+.card {
+    --bg: #111;    
+    --text: #fff;
+  }
+  /* 어떤 요소 또는 그 자식들의 테마를 바꾸고 싶을 떄 가까운 곳에서
+  다시 정의하면 이게 적용됨 */
+
+/* 
+  => :root {
+    --bg: white;
+  }
+  .card {
+    --bg: #111;
+  } */
+
+  /* CSS 변수는 상속되기 때문에,
+ card에 들어온 순간, 111로 덮어쓰기 되고,
+ card의 자식들은 var(--bg)사용시 111이 적용된다. */

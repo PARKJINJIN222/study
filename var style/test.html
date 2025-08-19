@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
@@ -22,4 +22,62 @@
     <body>
         <h1>CSS 변수 실험</h1>
     </body>
-</html>
+</html> -->
+
+
+<style>
+    :root {
+      --bg: white;
+      --text: black;
+      --space: 12px;
+    }
+    [data-theme="dark"] {
+      --bg: #0f1115;
+      --text: #e6e8ea;
+    }
+  
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: var(--space);
+    }
+  
+    .card {
+      /* 카드별로 테마 재정의 가능 */
+      --bg: #101820;
+      --text: #f5f7fa;
+      padding: calc(var(--space) * 2);
+      border-radius: 12px;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 480px;
+    }
+  
+    .btn {
+      --btn-bg: #4caf50;
+      --btn-bg-hover: #45a049;
+      padding: 10px 16px;
+      border: 0; border-radius: 8px;
+      background: var(--btn-bg);
+      color: white; cursor: pointer;
+      transition: background .2s;
+    }
+    .btn:hover { background: var(--btn-bg-hover); }
+  </style>
+  
+  <body data-theme="light">
+    <button class="btn" id="toggle">ダーク切替 (다크 전환)</button>
+    <div class="card" style="margin-top: var(--space);">
+      CSS変数のデモです (CSS 변수 데모)
+    </div>
+  
+    <script>
+      const btn = document.getElementById('toggle');
+      btn.addEventListener('click', () => {
+        const b = document.body;
+        b.dataset.theme = (b.dataset.theme === 'dark') ? 'light' : 'dark';
+      });
+    </script>
+  </body>
