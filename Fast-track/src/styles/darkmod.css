@@ -1,0 +1,11 @@
+/*다크모드 연습*/
+
+:root {
+    --background: white --textColor: black;
+}
+
+[data-color-mode='dark'] {
+
+    --background: #000 -textColor: white;
+}
+https://sonblog.vercel.app/projects/nextjs-blog/darkmode
