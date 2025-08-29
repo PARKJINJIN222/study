@@ -8,4 +8,12 @@
 
     --background: #000 -textColor: white;
 }
+
+
+body {
+  background-color: var(--background);
+  color: var(--textColor);
+}
+
+
 https://sonblog.vercel.app/projects/nextjs-blog/darkmode
