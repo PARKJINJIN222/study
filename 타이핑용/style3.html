@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 단위 요약</title>
+  <style>
+    :root { font-size: 16px; }
+
+    .box-rem {
+      font-size: 1rem;        /* html 기준 16px */
+      padding: 2rem;          /* 전역 기준 → 레이아웃 안정 */
+      background: lightblue;
+    }
+
+    .box-em {
+      font-size: 1.25rem;     /* 부모 글자 크기에 비례 */
+      padding: 1em;           /* 글자 크기 커지면 패딩도 같이 커짐 */
+      background: lightgreen;
+    }
+
+    .box-vhvw {
+      width: 50vw;            /* 화면 너비의 절반 */
+      height: 30vh;           /* 화면 높이의 30% */
+      background: lightcoral;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS 단위 요약</h1>
+
+  <h2>rem</h2>
+  <p>루트(<code>html</code>) 폰트 크기 기준. 사이트 전역 일관성 유지에 적합.</p>
+  <div class="box-rem">rem box</div>
+
+  <h2>em</h2>
+  <p>부모 요소의 글자 크기 기준. 내부 여백·비율 맞출 때 적합.</p>
+  <div class="box-em">em box</div>
+
+  <h2>vh / vw</h2>
+  <p>뷰포트(화면) 크기 기준. 반응형 레이아웃 만들 때 편리.</p>
+  <div class="box-vhvw">vh/vw box</div>
+
+</body>
+</html>
+
+<!-- rem = 여러개의 박스가 있다면 제일 큰 박스에 사용
+em은 그 박스 안에 요소들을 정의 할 때 사용
+vw vh등
+해당 기능들을 사용하면 반응형을 구현 할 수 있고, 반응형을 만들었더라도 더 안정적인 반응형 구현 가능 
+
+다만, vw/vh는 항상 화면에 맞추니까 극단적 변화가 있을 수 있음
+→ 모바일 기기에서 주소창 높이에 따라 100vh가 달라지는 문제
+→ 글자 크기를 vw로만 주면 너무 작거나 크게 깨질 수 있음
+	•	그래서 보통 clamp()랑 같이 써서 안정성 확보
+    h1 {
+        font-size: clamp(1.2rem, 3vw, 2.5rem);
+      }
+      =>최소 1.2rem, 최대 2.5rem 안에서만 화면 크기에 맞춰 변화 -->
