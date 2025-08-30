@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <a href="http://www.google.com">URL</a><br>
+    <a href="html/my.html">Local file</a><br>
+    <a href="file/my.pdf" download>Download file</a><br>
+    <a href="#">fragment identifier</a><br>
+    <a href="mailto:someone@example.com?Subject=Hello again">Send Mail</a><br>
+    <a href="javascript:alert('Hello');">Javascript</a>
+    <a href="#top">Go to top</a>  
+    <a href="http://www.google.com" target="_blank" rel="noopener noreferrer">Visit google.com!</a>
+</body>
+</html>
+
+<!-- target="_blank"를 사용해 외부 페이지를 오픈하는 경우, 
+ 이동한 외부 페이지에서 자바스크립트 코드를 사용해 악의적인 페이지로 리다이렉트할 수 있는 
+ 보안 취약점(Tabnabbing 피싱 공격)이 있다.
+  따라서 rel="noopener noreferrer"를 추가해 Tabnabbing 피싱 공격에 대비할 것을 권장한다. 
+  참고로 noopener 속성은 성능 상 이점도 있는 것으로 알려져 있다.  -->
